@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $("#submitAddFlight").click(function () {
         var jsonObj = new Object();
+        jsonObj.flightId = $("#filghtId").val();
         jsonObj.startCity = $("#startCity").val();
         jsonObj.endCity = $("#endCity").val();
         jsonObj.startTime = $("#startTime").val();
