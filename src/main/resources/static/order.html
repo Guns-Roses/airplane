@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/index.css">
+
+    <!--bootstrap用于idea自动提醒功能-->
+
+    <link rel="stylesheet" href="dist/css/bootstrap.min.css"/>
+    <title>login</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="dist/js/jquery.cookie.js"></script>
+    <link rel="stylesheet" href="css/navgation.css">
+    <script src="js/order.js"></script>
+</head>
+<body>
+<nav class="navbar bg-dark navbar-expand-sm" style="height: 70px" role="navigation">
+</nav>
+<div id="center-content-nav" class="row">
+    <div class="col-2">
+        <nav class="navbar bg-dark">
+            <div style="margin-left:20%;height: 500px">
+                <ul class="navbar-nav container">
+                    <li class="nav-item nav-font">
+                        <a href="showFlight.html">机票查询</a>
+                    </li>
+                    <li class="nav-item nav-font">
+                        <a href="showForm.html">订单查询</a>
+                    </li>
+                    <li class="nav-item nav-font">
+                        <a href="#">订单查询</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="col-5">
+        <div class="container" style="margin-top: 10%" >
+            <div id="formOrder" class="form-group">
+                <div class="form-group" id="passengers">
+                    <label for="passengerName1">乘客姓名</label>
+                    <input type="text" class="form-control" id="passengerName1">
+                </div>
+            </div>
+            <div class="row form-group container">
+                <button id="addBtn" class="col-3 btn btn-primary">添加乘客</button>
+                <button type="submit" id="submit" class="col-3 btn btn-primary" style="margin-left: 50px">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

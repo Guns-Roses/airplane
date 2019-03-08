@@ -1,0 +1,12 @@
+server:
+  port: 9999
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/ticket?useSSL=false
+    username: root
+    password: root
+
+mybatis:
+  type-aliases-package: com.ticketsystem.entity

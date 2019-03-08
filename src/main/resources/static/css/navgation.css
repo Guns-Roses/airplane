@@ -1,0 +1,20 @@
+li.nav-font{
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+li.nav-font a:link{
+    color: white;
+}
+li.nav-font a:hover{
+    text-decoration: none;
+}
+li.nav-font a:visited{
+    color: white;
+}
+li.nav-font a{
+    border-bottom-color: black;
+}
+
+#center-content-nav{
+    height: 700px;
+}

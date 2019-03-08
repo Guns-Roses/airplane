@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/index.css">
+
+    <!--bootstrap用于idea自动提醒功能-->
+
+    <link rel="stylesheet" href="dist/css/bootstrap.min.css"/>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="css/navgation.css">
+    <script src="js/alterTicket.js"></script>
+</head>
+<body>
+<nav class="navbar bg-dark navbar-expand-sm" style="height: 70px" role="navigation">
+</nav>
+<div id="center-content-nav" class="row">
+    <div class="col-2">
+        <nav class="navbar bg-dark">
+            <div style="height: 500px;margin-left: 20%">
+                <ul class="navbar-nav container">
+                    <li class="nav-item nav-font">
+                        <a href="managerTicket.html">机票管理</a>
+                    </li>
+                    <li class="nav-item nav-font">
+                        <a href="managerFlight.html">航班管理</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="container col-7">
+        <div class="form-group">
+            <label for="flightId">航班号</label>
+            <input class="form-control" type="text" id="flightId">
+        </div>
+        <div class="form-group">
+            <label for="passengerName">乘客</label>
+            <input class="form-control" type="text" id="passengerName">
+        </div>
+        <div class="form-group">
+            <label for="price">价格</label>
+            <input class="form-control" type="text" id="price">
+        </div>
+        <div class="form-group">
+            <button id="submitAltTicket" class="btn btn-primary">提交</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+table a:link{
+    color: black;
+}
+table a:hover{
+    text-decoration: none;
+}
+table a:visited{
+    color:black;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!--bootstrap用于idea自动提醒功能-->
+
+    <link rel="stylesheet" href="dist/css/bootstrap.min.css"/>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/navgation.css">
+    <link rel="stylesheet" href="css/showForm.css">
+    <script src="js/showForm.js"></script>
+    <script src="dist/js/jquery.cookie.js"></script>
+
+</head>
+<body>
+<nav class="navbar bg-dark navbar-expand-sm" style="height: 70px" role="navigation">
+</nav>
+<div class="row">
+    <div class="col-2"  style="height: inherit">
+        <nav class="navbar bg-dark" style="height: inherit">
+            <ul class="navbar-nav" style="height: 500px;margin-left: 20%">
+                <li class="nav-item nav-font">
+                    <a href="showFlight.html">机票查询</a>
+                </li>
+                <li class="nav-item nav-font">
+                    <a href="showForm.html">订单查询</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="container div-table col-5">
+        <table id="table-form" class="table">
+            <thead>
+            <tr>
+                <th>预定时间</th>
+                <th>机票数量</th>
+                <th>总金额</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody id="tbody-form">
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

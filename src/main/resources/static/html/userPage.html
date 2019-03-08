@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        $(document).ready(function () {
+            if(document.cookie.length > 0){
+                //截取cookie中token的值
+                var tokenStart = document.cookie.indexOf("token=");
+                if(tokenStart > 0){
+                    var tokenEnd = document.cookie.indexOf(";",tokenStart);
+                    $("#token").text = document.cookie.substring(tokenStart,tokenEnd);
+                }
+            }
+        })
+    </script>
+</head>
+<body>
+    <p id="token"></p>
+</body>
+</html>
