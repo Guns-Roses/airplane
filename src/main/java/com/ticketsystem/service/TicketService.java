@@ -20,23 +20,23 @@ public class TicketService {
     @Autowired
     private FlightMapper flightMapper;
 
-    public List<Ticket> getAllTicket(){
+    public List<Ticket> getAllTicket() {
         TicketExample ticketExample = new TicketExample();
         ticketExample.createCriteria();
         return ticketMapper.selectByExample(ticketExample);
     }
 
-    public List<Ticket> getTicketByFormId(int id){
+    public List<Ticket> getTicketByFormId(int id) {
         TicketExample ticketExample = new TicketExample();
         ticketExample.createCriteria().andOrderFormIdEqualTo(id);
         return ticketMapper.selectByExample(ticketExample);
     }
 
-    public Ticket getTicketById(int ticketId){
+    public Ticket getTicketById(int ticketId) {
         return ticketMapper.selectByPrimaryKey(ticketId);
     }
 
-    public void altTicket(int ticketId, int flightId, String passengerName, float price){
+    public void altTicket(int ticketId, int flightId, String passengerName, float price) {
         Ticket ticket = new Ticket();
         ticket.setPrice(price);
         ticket.setFlightId(flightId);
@@ -45,15 +45,14 @@ public class TicketService {
         ticketMapper.updateByPrimaryKeySelective(ticket);
     }
 
-    public void deleteById(int ticketId){
+    public void deleteById(int ticketId) {
         Ticket ticket = ticketMapper.selectByPrimaryKey(ticketId);
         ticketMapper.deleteByPrimaryKey(ticketId);
         OrderForm orderForm = orderFormMapper.selectByPrimaryKey(ticket.getOrderFormId());
         orderForm.setTicketNumber(orderForm.getTicketNumber() - 1);
-        if(orderForm.getTicketNumber() == 0){
+        if (orderForm.getTicketNumber() == 0) {
             orderFormMapper.deleteByPrimaryKey(orderForm.getOrderFormId());
-        }
-        else {
+        } else {
             orderForm.setTotalPrice(orderForm.getTotalPrice() - ticket.getPrice() * ticket.getDiscount());
             orderFormMapper.updateByPrimaryKeySelective(orderForm);
         }

@@ -3,18 +3,18 @@ $(document).ready(function () {
     var jsonObj = new Object();
     jsonObj.orderFormId = orderFormId;
     $.ajax({
-        url:"/ticket/formId",
-        contentType:"application/json;charset=utf-8",
-        type:"POST",
-        data:JSON.stringify(jsonObj),
-        success:function (data) {
+        url: "/ticket/formId",
+        contentType: "application/json;charset=utf-8",
+        type: "POST",
+        data: JSON.stringify(jsonObj),
+        success: function (data) {
             showData(data);
         }
     })
 });
 
 
-function showData(data){
+function showData(data) {
     /*"ticketId": 1,
         "flightId": 1,
         "orderFormId": 1,
@@ -22,7 +22,7 @@ function showData(data){
         "discount": 1,
         "passengerName": "liu",
         "passengeId": null*/
-    for(var i = 0; i < data.length; i++){
+    for (var i = 0; i < data.length; i++) {
         var tr = document.createElement("tr");
         var flightIdTd = document.createElement("td");
         flightIdTd.append(data[i].flightId);

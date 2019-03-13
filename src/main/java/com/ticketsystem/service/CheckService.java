@@ -12,19 +12,18 @@ public class CheckService {
     @Autowired
     private UserMapper userMapper;
 
-    public User getToken(User user){
+    public User getToken(User user) {
         UserExample userExample = new UserExample();
         UserExample.Criteria criteria = userExample.createCriteria();
         criteria.andUserNameEqualTo(user.getUserName());
-        if(userMapper.selectByExample(userExample).size() != 0){
+        if (userMapper.selectByExample(userExample).size() != 0) {
             criteria.andUserPasswordEqualTo(user.getUserPassword());
-            if(userMapper.selectByExample(userExample).size() != 0){
+            if (userMapper.selectByExample(userExample).size() != 0) {
                 user = userMapper.selectByExample(userExample).get(0);
                 return user;
-            }
-            else
+            } else
                 return null;
-        }else {
+        } else {
             return null;
         }
     }

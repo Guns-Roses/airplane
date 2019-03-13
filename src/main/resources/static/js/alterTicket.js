@@ -4,11 +4,11 @@ $(document).ready(function () {
     jsonObj.ticketId = ticketId;
 
     $.ajax({
-        url:"/ticket/ticketId",
-        contentType:"application/json;charset=utf-8",
-        type:"POST",
-        data:JSON.stringify(jsonObj),
-        success:function (data) {
+        url: "/ticket/ticketId",
+        contentType: "application/json;charset=utf-8",
+        type: "POST",
+        data: JSON.stringify(jsonObj),
+        success: function (data) {
             $("#flightId").val(data.flightId);
             $("#passengerName").val(data.passengerName);
             $("#price").val(data.price);
@@ -21,11 +21,11 @@ $(document).ready(function () {
         jsonObj.price = $("#price").val();
 
         $.ajax({
-            url:"/ticket/altTicket",
-            type:"POST",
-            contentType:"application/json;charset=utf8",
-            data:JSON.stringify(jsonObj),
-            success:function () {
+            url: "/ticket/altTicket",
+            type: "POST",
+            contentType: "application/json;charset=utf8",
+            data: JSON.stringify(jsonObj),
+            success: function () {
                 alert("修改成功");
             }
         })

@@ -4,8 +4,10 @@ import com.ticketsystem.model.Flight;
 import com.ticketsystem.model.FlightExample.Criteria;
 import com.ticketsystem.model.FlightExample.Criterion;
 import com.ticketsystem.model.FlightExample;
+
 import java.util.List;
 import java.util.Map;
+
 import org.apache.ibatis.jdbc.SQL;
 
 public class FlightSqlProvider {
@@ -27,35 +29,35 @@ public class FlightSqlProvider {
     public String insertSelective(Flight record) {
         SQL sql = new SQL();
         sql.INSERT_INTO("flight");
-        
+
         if (record.getFlightId() != null) {
             sql.VALUES("flight_id", "#{flightId,jdbcType=INTEGER}");
         }
-        
+
         if (record.getStartTime() != null) {
             sql.VALUES("start_time", "#{startTime,jdbcType=TIMESTAMP}");
         }
-        
+
         if (record.getStartCity() != null) {
             sql.VALUES("start_city", "#{startCity,jdbcType=CHAR}");
         }
-        
+
         if (record.getEndCity() != null) {
             sql.VALUES("end_city", "#{endCity,jdbcType=CHAR}");
         }
-        
+
         if (record.getPeopleNumber() != null) {
             sql.VALUES("people_number", "#{peopleNumber,jdbcType=DECIMAL}");
         }
-        
+
         if (record.getLeftTicket() != null) {
             sql.VALUES("left_ticket", "#{leftTicket,jdbcType=DECIMAL}");
         }
-        
+
         if (record.getTicketPrice() != null) {
             sql.VALUES("ticket_price", "#{ticketPrice,jdbcType=REAL}");
         }
-        
+
         return sql.toString();
     }
 
@@ -74,49 +76,49 @@ public class FlightSqlProvider {
         sql.SELECT("ticket_price");
         sql.FROM("flight");
         applyWhere(sql, example, false);
-        
+
         if (example != null && example.getOrderByClause() != null) {
             sql.ORDER_BY(example.getOrderByClause());
         }
-        
+
         return sql.toString();
     }
 
     public String updateByExampleSelective(Map<String, Object> parameter) {
         Flight record = (Flight) parameter.get("record");
         FlightExample example = (FlightExample) parameter.get("example");
-        
+
         SQL sql = new SQL();
         sql.UPDATE("flight");
-        
+
         if (record.getFlightId() != null) {
             sql.SET("flight_id = #{record.flightId,jdbcType=INTEGER}");
         }
-        
+
         if (record.getStartTime() != null) {
             sql.SET("start_time = #{record.startTime,jdbcType=TIMESTAMP}");
         }
-        
+
         if (record.getStartCity() != null) {
             sql.SET("start_city = #{record.startCity,jdbcType=CHAR}");
         }
-        
+
         if (record.getEndCity() != null) {
             sql.SET("end_city = #{record.endCity,jdbcType=CHAR}");
         }
-        
+
         if (record.getPeopleNumber() != null) {
             sql.SET("people_number = #{record.peopleNumber,jdbcType=DECIMAL}");
         }
-        
+
         if (record.getLeftTicket() != null) {
             sql.SET("left_ticket = #{record.leftTicket,jdbcType=DECIMAL}");
         }
-        
+
         if (record.getTicketPrice() != null) {
             sql.SET("ticket_price = #{record.ticketPrice,jdbcType=REAL}");
         }
-        
+
         applyWhere(sql, example, true);
         return sql.toString();
     }
@@ -124,7 +126,7 @@ public class FlightSqlProvider {
     public String updateByExample(Map<String, Object> parameter) {
         SQL sql = new SQL();
         sql.UPDATE("flight");
-        
+
         sql.SET("flight_id = #{record.flightId,jdbcType=INTEGER}");
         sql.SET("start_time = #{record.startTime,jdbcType=TIMESTAMP}");
         sql.SET("start_city = #{record.startCity,jdbcType=CHAR}");
@@ -132,7 +134,7 @@ public class FlightSqlProvider {
         sql.SET("people_number = #{record.peopleNumber,jdbcType=DECIMAL}");
         sql.SET("left_ticket = #{record.leftTicket,jdbcType=DECIMAL}");
         sql.SET("ticket_price = #{record.ticketPrice,jdbcType=REAL}");
-        
+
         FlightExample example = (FlightExample) parameter.get("example");
         applyWhere(sql, example, true);
         return sql.toString();
@@ -141,33 +143,33 @@ public class FlightSqlProvider {
     public String updateByPrimaryKeySelective(Flight record) {
         SQL sql = new SQL();
         sql.UPDATE("flight");
-        
+
         if (record.getStartTime() != null) {
             sql.SET("start_time = #{startTime,jdbcType=TIMESTAMP}");
         }
-        
+
         if (record.getStartCity() != null) {
             sql.SET("start_city = #{startCity,jdbcType=CHAR}");
         }
-        
+
         if (record.getEndCity() != null) {
             sql.SET("end_city = #{endCity,jdbcType=CHAR}");
         }
-        
+
         if (record.getPeopleNumber() != null) {
             sql.SET("people_number = #{peopleNumber,jdbcType=DECIMAL}");
         }
-        
+
         if (record.getLeftTicket() != null) {
             sql.SET("left_ticket = #{leftTicket,jdbcType=DECIMAL}");
         }
-        
+
         if (record.getTicketPrice() != null) {
             sql.SET("ticket_price = #{ticketPrice,jdbcType=REAL}");
         }
-        
+
         sql.WHERE("flight_id = #{flightId,jdbcType=INTEGER}");
-        
+
         return sql.toString();
     }
 
@@ -175,7 +177,7 @@ public class FlightSqlProvider {
         if (example == null) {
             return;
         }
-        
+
         String parmPhrase1;
         String parmPhrase1_th;
         String parmPhrase2;
@@ -197,7 +199,7 @@ public class FlightSqlProvider {
             parmPhrase3 = "#{oredCriteria[%d].allCriteria[%d].value[%d]}";
             parmPhrase3_th = "#{oredCriteria[%d].allCriteria[%d].value[%d],typeHandler=%s}";
         }
-        
+
         StringBuilder sb = new StringBuilder();
         List<Criteria> oredCriteria = example.getOredCriteria();
         boolean firstCriteria = true;
@@ -209,7 +211,7 @@ public class FlightSqlProvider {
                 } else {
                     sb.append(" or ");
                 }
-                
+
                 sb.append('(');
                 List<Criterion> criterions = criteria.getAllCriteria();
                 boolean firstCriterion = true;
@@ -220,14 +222,14 @@ public class FlightSqlProvider {
                     } else {
                         sb.append(" and ");
                     }
-                    
+
                     if (criterion.isNoValue()) {
                         sb.append(criterion.getCondition());
                     } else if (criterion.isSingleValue()) {
                         if (criterion.getTypeHandler() == null) {
                             sb.append(String.format(parmPhrase1, criterion.getCondition(), i, j));
                         } else {
-                            sb.append(String.format(parmPhrase1_th, criterion.getCondition(), i, j,criterion.getTypeHandler()));
+                            sb.append(String.format(parmPhrase1_th, criterion.getCondition(), i, j, criterion.getTypeHandler()));
                         }
                     } else if (criterion.isBetweenValue()) {
                         if (criterion.getTypeHandler() == null) {
@@ -258,7 +260,7 @@ public class FlightSqlProvider {
                 sb.append(')');
             }
         }
-        
+
         if (sb.length() > 0) {
             sql.WHERE(sb.toString());
         }

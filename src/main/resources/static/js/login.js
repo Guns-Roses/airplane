@@ -6,22 +6,22 @@ $(document).ready(function () {
         jsonObj.username = name;
         jsonObj.password = pwd;
         $.ajax({
-            url:"/user",
-            data:JSON.stringify(jsonObj),
-            type:"POST",
-            contentType:"application/json; charset=utf-8",
-            success:function (data) {
-                if(data == null)
+            url: "/user",
+            data: JSON.stringify(jsonObj),
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                if (data == null)
                     alert("登录失败");
-                else{
+                else {
                     alert("登录成功");
-                    $.cookie("username",name);
-                    if(data.isManager == 1)
+                    $.cookie("username", name);
+                    if (data.isManager == 1)
                         window.location = "managerFlight.html";
-                    else if(data.isVip == 1) {
+                    else if (data.isVip == 1) {
                         window.location = "showFlight.html";
                         alert("尊敬的会员，您可以享受八折优惠");
-                    }else {
+                    } else {
                         window.location = "showFlight.html";
                     }
                 }

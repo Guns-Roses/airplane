@@ -2,11 +2,11 @@ $(document).ready(function () {
     var jsonObj = new Object();
     jsonObj.username = $.cookie("username");//cookie
     $.ajax({
-        url:"/form/all",
-        data:JSON.stringify(jsonObj),
-        type:"POST",
-        contentType:"application/json;charset=utf-8",
-        success:function (data) {
+        url: "/form/all",
+        data: JSON.stringify(jsonObj),
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        success: function (data) {
             showData(data);
         }
     })
@@ -19,7 +19,7 @@ function showData(data) {
         "ticketNumber": 1,
         "totalPrice": 1000,
         "orderTime": "2018-06-03T07:47:54.000+0000"*/
-    for(var i = 0;i < data.length; i++){
+    for (var i = 0; i < data.length; i++) {
         var tr = document.createElement('tr');
         var orderTTd = document.createElement('td');
         orderTTd.append(data[i].orderTime);

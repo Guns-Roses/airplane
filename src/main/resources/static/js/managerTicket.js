@@ -2,20 +2,20 @@ $(document).ready(function () {
     var orderFormId = location.search.split("orderFormId=")[1];
     var jsonObj = new Object();
     jsonObj.orderFormId = orderFormId;
-    $.get("/ticket/all",function (data) {
+    $.get("/ticket/all", function (data) {
         showData(data);
     })
 });
 
 
-function showData(data){
+function showData(data) {
     /*"ticketId": 1,
         "flightId": 1,
         "orderFormId": 1,
         "price": 1000,
         "discount": 1,
         "passengerName": "liu"*/
-    for(var i = 0; i < data.length; i++){
+    for (var i = 0; i < data.length; i++) {
         var tr = document.createElement("tr");
         var flightIdTd = document.createElement("td");
         flightIdTd.append(data[i].flightId);
@@ -24,7 +24,7 @@ function showData(data){
         var passengerName = document.createElement("td");
         passengerName.append(data[i].passengerName);
         var discountTd = document.createElement('td');
-        if(data[i].discount == 0.8)
+        if (data[i].discount == 0.8)
             discountTd.append("是");
         else discountTd.append("否");
         var operateTd = document.createElement("td");
@@ -44,10 +44,9 @@ function showData(data){
         tr.appendChild(discountTd);
         tr.appendChild(operateTd);
         $("#tbody-ticket").append(tr);
-        $("#del" + data[i].ticketId).attr("onclick","deleteTicket(" + data[i].ticketId + ")");
+        $("#del" + data[i].ticketId).attr("onclick", "deleteTicket(" + data[i].ticketId + ")");
     }
 }
-
 
 
 function deleteTicket(ticketId) {
@@ -55,13 +54,13 @@ function deleteTicket(ticketId) {
     jsonObj.ticketId = ticketId;
 
     $.ajax({
-        url:"ticket/deleteById",
-        contentType:"application/json;charset=utf-8",
-        type:"POST",
-        data:JSON.stringify(jsonObj),
-        success:function () {
+        url: "ticket/deleteById",
+        contentType: "application/json;charset=utf-8",
+        type: "POST",
+        data: JSON.stringify(jsonObj),
+        success: function () {
             var con = confirm("是否删除?");
-            if(con == true){
+            if (con == true) {
                 alert("删除成功");
                 window.location.reload();
             }

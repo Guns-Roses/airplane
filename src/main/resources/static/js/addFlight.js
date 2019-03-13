@@ -10,11 +10,11 @@ $(document).ready(function () {
         jsonObj.ticketPrice = $("#price").val();
 
         $.ajax({
-            url:"/flight/add",
-            contentType:"application/json;charset=utf-8",
-            type:"POST",
-            data:JSON.stringify(jsonObj),
-            success:function () {
+            url: "/flight/add",
+            contentType: "application/json;charset=utf-8",
+            type: "POST",
+            data: JSON.stringify(jsonObj),
+            success: function () {
                 alert("提交成功")
             }
         })

@@ -2,63 +2,68 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/index.css">
 
     <!--bootstrap用于idea自动提醒功能-->
 
     <link rel="stylesheet" href="dist/css/bootstrap.min.css"/>
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
 
     <title>Title</title>
     <link rel="stylesheet" href="css/navgation.css">
     <script src="js/showFlight.js"></script>
 </head>
 <body>
-    <nav class="navbar bg-dark navbar-expand-sm" style="height: 100px" role="navigation">
-    </nav>
-    <div id="center-content-nav" class="row">
-        <div class="col-2">
-            <nav class="navbar bg-dark">
-                    <ul class="navbar-nav" style="height: 800px;margin-left: 20%">
-                        <li class="nav-item nav-font">
-                            <a href="showFlight.html">机票查询</a>
-                        </li>
-                        <li class="nav-item nav-font">
-                            <a href="showForm.html">订单查询</a>
-                        </li>
-                    </ul>
-            </nav>
-        </div>
-        <div class="container div-table col">
-            <div class="container" style="margin-top: 30px">
-                <label for="queryStart" class="form-inline">
-                    起飞城市
-                    <input class="form-control" type="text" id="queryStart" style="margin-left: 20px">
-                </label>
-                <label for="queryEnd" class="form-inline">
-                    到达城市
-                    <input class="form-control" type="text" id="queryEnd" style="margin-left: 20px">
-                    <button class="btn btn-primary" id="queryFlight" style="margin-left: 20px">查询</button>
-                </label>
-            </div>
-            <table id="table-ticket" class="table">
-                <thead>
-                    <tr>
-                        <th>起飞城市</th>
-                        <th>到达城市</th>
-                        <th>起飞时间</th>
-                        <th>剩余票数</th>
-                        <th>票价</th>
-                        <th>操作</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody-flight">
-                </tbody>
-            </table>
-        </div>
+<nav class="navbar bg-dark navbar-expand-sm" style="height: 100px" role="navigation">
+</nav>
+<div id="center-content-nav" class="row">
+    <div class="col-2">
+        <nav class="navbar bg-dark">
+            <ul class="navbar-nav" style="height: 800px;margin-left: 20%">
+                <li class="nav-item nav-font">
+                    <a href="showFlight.html">机票查询</a>
+                </li>
+                <li class="nav-item nav-font">
+                    <a href="showForm.html">订单查询</a>
+                </li>
+            </ul>
+        </nav>
     </div>
+    <div class="container div-table col">
+        <div class="container" style="margin-top: 30px">
+            <label for="queryStart" class="form-inline">
+                起飞城市
+                <input class="form-control" type="text" id="queryStart" style="margin-left: 20px">
+            </label>
+            <label for="queryEnd" class="form-inline">
+                到达城市
+                <input class="form-control" type="text" id="queryEnd" style="margin-left: 20px">
+                <button class="btn btn-primary" id="queryFlight" style="margin-left: 20px">查询</button>
+            </label>
+        </div>
+        <table id="table-ticket" class="table">
+            <thead>
+            <tr>
+                <th>起飞城市</th>
+                <th>到达城市</th>
+                <th>起飞时间</th>
+                <th>剩余票数</th>
+                <th>票价</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody id="tbody-flight">
+            </tbody>
+        </table>
+    </div>
+</div>
 </body>
 </html>

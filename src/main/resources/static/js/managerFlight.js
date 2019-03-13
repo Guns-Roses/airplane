@@ -1,8 +1,8 @@
 $(document).ready(function () {
 
     //加载表格数据
-    $.get("/flight/all",function (data) {
-        for(var i = 0;i < data.length;i++){
+    $.get("/flight/all", function (data) {
+        for (var i = 0; i < data.length; i++) {
             var tr = document.createElement('tr');
             //         "flightId": 1,
             //         "startTime": "2018-06-02T13:52:00.000+0000",
@@ -39,7 +39,7 @@ $(document).ready(function () {
             operateTd.appendChild(delA);
             tr.appendChild(operateTd);
             $("#tbody-flight").append(tr);
-            $("#delFlight" + data[i].flightId).attr("onclick","deleteFlight(" + data[i].flightId + ")");
+            $("#delFlight" + data[i].flightId).attr("onclick", "deleteFlight(" + data[i].flightId + ")");
         }
     })
 
@@ -50,16 +50,16 @@ $(document).ready(function () {
 
 function deleteFlight(flightId) {
     var con = confirm("是否删除？");
-    if(con == true){
+    if (con == true) {
         var jsonObj = new Object();
         jsonObj.flightId = flightId;
 
         $.ajax({
-            url:"/flight/deleteById",
-            type:"POST",
-            contentType:"application/json;charset=utf-8",
-            data:JSON.stringify(jsonObj),
-            success:function () {
+            url: "/flight/deleteById",
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify(jsonObj),
+            success: function () {
                 alert("删除成功");
                 window.location.reload();
             }

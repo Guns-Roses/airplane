@@ -20,34 +20,34 @@ $(document).ready(function () {
         $("#formOrder").append(div);
     });
 
-/*    {
-        "username":"admin",
-        "flightId":"1",
-        "ticketNumber":"2",
-        "passengerNames":[{
-        "passengerName":"liu"
-    },{
-        "passengerName":"zhao"
-    }]
-    }*/
+    /*    {
+            "username":"admin",
+            "flightId":"1",
+            "ticketNumber":"2",
+            "passengerNames":[{
+            "passengerName":"liu"
+        },{
+            "passengerName":"zhao"
+        }]
+        }*/
 
     $("#submit").click(function () {
         jsonObj.username = $.cookie("username");
         jsonObj.flightId = flightId;
         jsonObj.ticketNumber = i;
         jsonObj.passengerNames = new Array();
-        for(var j = 0; j < i; j++){
+        for (var j = 0; j < i; j++) {
             jsonObj.passengerNames[j] = new Object();
-            jsonObj.passengerNames[j].passengerName = $("#passengerName" + (j+1)).val();
+            jsonObj.passengerNames[j].passengerName = $("#passengerName" + (j + 1)).val();
         }
         $.ajax({
-            url:"/form/price",
-            contentType:"application/json;charset=utf-8",
-            data:JSON.stringify(jsonObj),
-            type:"POST",
-            success:function (data) {
+            url: "/form/price",
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify(jsonObj),
+            type: "POST",
+            success: function (data) {
                 var con = confirm("总价格为" + data.totalPrice + "是否支付？");
-                if(con == true)
+                if (con == true)
                     order();
             }
         })
@@ -56,11 +56,11 @@ $(document).ready(function () {
 
 function order() {
     $.ajax({
-        url:"/form/order",
-        contentType:"application/json;charset=utf-8",
-        data:JSON.stringify(jsonObj),
-        type:"POST",
-        success:function (data) {
+        url: "/form/order",
+        contentType: "application/json;charset=utf-8",
+        data: JSON.stringify(jsonObj),
+        type: "POST",
+        success: function (data) {
             alert("支付成功");
         }
     })

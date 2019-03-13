@@ -4,8 +4,10 @@ import com.ticketsystem.model.OrderForm;
 import com.ticketsystem.model.OrderFormExample.Criteria;
 import com.ticketsystem.model.OrderFormExample.Criterion;
 import com.ticketsystem.model.OrderFormExample;
+
 import java.util.List;
 import java.util.Map;
+
 import org.apache.ibatis.jdbc.SQL;
 
 public class OrderFormSqlProvider {
@@ -27,27 +29,27 @@ public class OrderFormSqlProvider {
     public String insertSelective(OrderForm record) {
         SQL sql = new SQL();
         sql.INSERT_INTO("order_form");
-        
+
         if (record.getOrderFormId() != null) {
             sql.VALUES("order_form_id", "#{orderFormId,jdbcType=INTEGER}");
         }
-        
+
         if (record.getUserId() != null) {
             sql.VALUES("user_id", "#{userId,jdbcType=INTEGER}");
         }
-        
+
         if (record.getTicketNumber() != null) {
             sql.VALUES("ticket_number", "#{ticketNumber,jdbcType=DECIMAL}");
         }
-        
+
         if (record.getTotalPrice() != null) {
             sql.VALUES("total_price", "#{totalPrice,jdbcType=REAL}");
         }
-        
+
         if (record.getOrderTime() != null) {
             sql.VALUES("order_time", "#{orderTime,jdbcType=TIMESTAMP}");
         }
-        
+
         return sql.toString();
     }
 
@@ -64,41 +66,41 @@ public class OrderFormSqlProvider {
         sql.SELECT("order_time");
         sql.FROM("order_form");
         applyWhere(sql, example, false);
-        
+
         if (example != null && example.getOrderByClause() != null) {
             sql.ORDER_BY(example.getOrderByClause());
         }
-        
+
         return sql.toString();
     }
 
     public String updateByExampleSelective(Map<String, Object> parameter) {
         OrderForm record = (OrderForm) parameter.get("record");
         OrderFormExample example = (OrderFormExample) parameter.get("example");
-        
+
         SQL sql = new SQL();
         sql.UPDATE("order_form");
-        
+
         if (record.getOrderFormId() != null) {
             sql.SET("order_form_id = #{record.orderFormId,jdbcType=INTEGER}");
         }
-        
+
         if (record.getUserId() != null) {
             sql.SET("user_id = #{record.userId,jdbcType=INTEGER}");
         }
-        
+
         if (record.getTicketNumber() != null) {
             sql.SET("ticket_number = #{record.ticketNumber,jdbcType=DECIMAL}");
         }
-        
+
         if (record.getTotalPrice() != null) {
             sql.SET("total_price = #{record.totalPrice,jdbcType=REAL}");
         }
-        
+
         if (record.getOrderTime() != null) {
             sql.SET("order_time = #{record.orderTime,jdbcType=TIMESTAMP}");
         }
-        
+
         applyWhere(sql, example, true);
         return sql.toString();
     }
@@ -106,13 +108,13 @@ public class OrderFormSqlProvider {
     public String updateByExample(Map<String, Object> parameter) {
         SQL sql = new SQL();
         sql.UPDATE("order_form");
-        
+
         sql.SET("order_form_id = #{record.orderFormId,jdbcType=INTEGER}");
         sql.SET("user_id = #{record.userId,jdbcType=INTEGER}");
         sql.SET("ticket_number = #{record.ticketNumber,jdbcType=DECIMAL}");
         sql.SET("total_price = #{record.totalPrice,jdbcType=REAL}");
         sql.SET("order_time = #{record.orderTime,jdbcType=TIMESTAMP}");
-        
+
         OrderFormExample example = (OrderFormExample) parameter.get("example");
         applyWhere(sql, example, true);
         return sql.toString();
@@ -121,25 +123,25 @@ public class OrderFormSqlProvider {
     public String updateByPrimaryKeySelective(OrderForm record) {
         SQL sql = new SQL();
         sql.UPDATE("order_form");
-        
+
         if (record.getUserId() != null) {
             sql.SET("user_id = #{userId,jdbcType=INTEGER}");
         }
-        
+
         if (record.getTicketNumber() != null) {
             sql.SET("ticket_number = #{ticketNumber,jdbcType=DECIMAL}");
         }
-        
+
         if (record.getTotalPrice() != null) {
             sql.SET("total_price = #{totalPrice,jdbcType=REAL}");
         }
-        
+
         if (record.getOrderTime() != null) {
             sql.SET("order_time = #{orderTime,jdbcType=TIMESTAMP}");
         }
-        
+
         sql.WHERE("order_form_id = #{orderFormId,jdbcType=INTEGER}");
-        
+
         return sql.toString();
     }
 
@@ -147,7 +149,7 @@ public class OrderFormSqlProvider {
         if (example == null) {
             return;
         }
-        
+
         String parmPhrase1;
         String parmPhrase1_th;
         String parmPhrase2;
@@ -169,7 +171,7 @@ public class OrderFormSqlProvider {
             parmPhrase3 = "#{oredCriteria[%d].allCriteria[%d].value[%d]}";
             parmPhrase3_th = "#{oredCriteria[%d].allCriteria[%d].value[%d],typeHandler=%s}";
         }
-        
+
         StringBuilder sb = new StringBuilder();
         List<Criteria> oredCriteria = example.getOredCriteria();
         boolean firstCriteria = true;
@@ -181,7 +183,7 @@ public class OrderFormSqlProvider {
                 } else {
                     sb.append(" or ");
                 }
-                
+
                 sb.append('(');
                 List<Criterion> criterions = criteria.getAllCriteria();
                 boolean firstCriterion = true;
@@ -192,14 +194,14 @@ public class OrderFormSqlProvider {
                     } else {
                         sb.append(" and ");
                     }
-                    
+
                     if (criterion.isNoValue()) {
                         sb.append(criterion.getCondition());
                     } else if (criterion.isSingleValue()) {
                         if (criterion.getTypeHandler() == null) {
                             sb.append(String.format(parmPhrase1, criterion.getCondition(), i, j));
                         } else {
-                            sb.append(String.format(parmPhrase1_th, criterion.getCondition(), i, j,criterion.getTypeHandler()));
+                            sb.append(String.format(parmPhrase1_th, criterion.getCondition(), i, j, criterion.getTypeHandler()));
                         }
                     } else if (criterion.isBetweenValue()) {
                         if (criterion.getTypeHandler() == null) {
@@ -230,7 +232,7 @@ public class OrderFormSqlProvider {
                 sb.append(')');
             }
         }
-        
+
         if (sb.length() > 0) {
             sql.WHERE(sb.toString());
         }

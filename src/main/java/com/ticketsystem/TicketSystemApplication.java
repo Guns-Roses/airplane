@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @MapperScan("com.ticketsystem.dao")
 public class TicketSystemApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(TicketSystemApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(TicketSystemApplication.class, args);
+    }
 }

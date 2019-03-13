@@ -27,7 +27,7 @@ public class FormService {
     @Autowired
     private FlightMapper flightMapper;
 
-    public List<OrderForm> getAll(String username){
+    public List<OrderForm> getAll(String username) {
         UserExample userExample = new UserExample();
         userExample.createCriteria().andUserNameEqualTo(username);
         User user = userMapper.selectByExample(userExample).get(0);
@@ -37,17 +37,17 @@ public class FormService {
         return orderFormMapper.selectByExample(orderFormExample);
     }
 
-    public float getAllPrice(String username,int ticketNum,int flightId){
+    public float getAllPrice(String username, int ticketNum, int flightId) {
         UserExample userExample = new UserExample();
         userExample.createCriteria().andUserNameEqualTo(username);
         int isVip = userMapper.selectByExample(userExample).get(0).getIsVip();
         float totalPrice = ticketNum * flightMapper.selectByPrimaryKey(flightId).getTicketPrice();
-        if(isVip == 1)
-            totalPrice = (float)0.8 * totalPrice;
+        if (isVip == 1)
+            totalPrice = (float) 0.8 * totalPrice;
         return totalPrice;
     }
 
-    public float order(String username,int ticketNum,List<Ticket> tickets){
+    public float order(String username, int ticketNum, List<Ticket> tickets) {
         float totalPrice = 0;
         UserExample userExample = new UserExample();
         UserExample.Criteria criteria = userExample.createCriteria();
@@ -57,7 +57,7 @@ public class FormService {
         Date now = new Date();
         orderForm.setOrderTime(now);
         orderForm.setTicketNumber(ticketNum);
-        if(user.getIsVip() == 1){
+        if (user.getIsVip() == 1) {
             totalPrice = (float) (flightMapper.selectByPrimaryKey(tickets.get(0).getFlightId()).getTicketPrice() * ticketNum * 0.8);
             orderForm.setTotalPrice(totalPrice);
 
@@ -65,18 +65,18 @@ public class FormService {
         orderForm.setUserId(user.getUserId());
         orderFormMapper.insert(orderForm);
         OrderFormExample orderFormExample = new OrderFormExample();
-        Date now1 = addSecond(now,5);
-        now = addSecond(now,-1);
+        Date now1 = addSecond(now, 5);
+        now = addSecond(now, -1);
         OrderFormExample.Criteria orderFormExampleCriteria = orderFormExample.createCriteria();
-        orderFormExampleCriteria.andOrderTimeBetween(now,now1);
+        orderFormExampleCriteria.andOrderTimeBetween(now, now1);
         orderFormExampleCriteria.andUserIdEqualTo(user.getUserId());
         orderForm.setOrderFormId(orderFormMapper.selectByExample(orderFormExample).get(0).getOrderFormId());
 
-        for(Ticket ticket : tickets){
+        for (Ticket ticket : tickets) {
             ticket.setPrice(flightMapper.selectByPrimaryKey(ticket.getFlightId()).getTicketPrice());
-            if(user.getIsVip() == 1)
-                ticket.setDiscount((float)0.8);
-            else ticket.setDiscount((float)1);
+            if (user.getIsVip() == 1)
+                ticket.setDiscount((float) 0.8);
+            else ticket.setDiscount((float) 1);
             ticket.setOrderFormId(orderForm.getOrderFormId());
             ticketMapper.insert(ticket);
         }
@@ -84,11 +84,11 @@ public class FormService {
         Flight flight = flightMapper.selectByPrimaryKey(tickets.get(0).getFlightId());
         flight.setLeftTicket(flight.getLeftTicket() - ticketNum);
         flightMapper.updateByPrimaryKey(flight);
-        
+
         return totalPrice;
     }
 
-    private Date addSecond(Date date,int second) {
+    private Date addSecond(Date date, int second) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         calendar.add(Calendar.SECOND, second);

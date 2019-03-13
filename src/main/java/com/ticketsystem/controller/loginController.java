@@ -21,7 +21,7 @@ public class loginController {
 
     @RequestMapping("/user")
     @ResponseBody
-    public User token(@RequestBody Map<String,String> param){
+    public User token(@RequestBody Map<String, String> param) {
         String username = param.get("username");
         String password = param.get("password");
         User user = new User();

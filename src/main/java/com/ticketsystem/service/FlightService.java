@@ -14,33 +14,33 @@ public class FlightService {
     @Autowired
     private FlightMapper flightMapper;
 
-    public List<Flight> getAllFlight(){
+    public List<Flight> getAllFlight() {
         return flightMapper.selectByExample(new FlightExample());
     }
 
-    public Flight getFlightById(int flightId){
+    public Flight getFlightById(int flightId) {
         return flightMapper.selectByPrimaryKey(flightId);
     }
 
-    public void altFlight(Flight flight){
+    public void altFlight(Flight flight) {
         flightMapper.updateByPrimaryKeySelective(flight);
     }
 
-    public void delFlight(int flightId){
+    public void delFlight(int flightId) {
         flightMapper.deleteByPrimaryKey(flightId);
     }
 
-    public List<Flight> queryByCity(String startCity, String endCity){
+    public List<Flight> queryByCity(String startCity, String endCity) {
         FlightExample flightExample = new FlightExample();
         FlightExample.Criteria criteria = flightExample.createCriteria();
-        if(startCity != "")
+        if (startCity != "")
             criteria.andStartCityEqualTo(startCity);
-        if(endCity != "")
+        if (endCity != "")
             criteria.andEndCityEqualTo(endCity);
         return flightMapper.selectByExample(flightExample);
     }
 
-    public void addFlight(Flight flight){
+    public void addFlight(Flight flight) {
         flightMapper.insert(flight);
     }
 }

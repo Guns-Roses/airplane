@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     //加载表格数据
-    $.get("/flight/all",function (data) {
+    $.get("/flight/all", function (data) {
         show(data);
     });
 
@@ -10,11 +10,11 @@ $(document).ready(function () {
         jsonObj.startCity = $("#queryStart").val();
         jsonObj.endCity = $("#queryEnd").val();
         $.ajax({
-            url:"flight/city",
-            contentType:"application/json;charset=utf-8",
-            type:"POST",
-            data:JSON.stringify(jsonObj),
-            success:function (data) {
+            url: "flight/city",
+            contentType: "application/json;charset=utf-8",
+            type: "POST",
+            data: JSON.stringify(jsonObj),
+            success: function (data) {
                 $("#tbody-flight").empty();
                 show(data);
             }
@@ -24,7 +24,7 @@ $(document).ready(function () {
 });
 
 function show(data) {
-    for(var i = 0;i < data.length;i++){
+    for (var i = 0; i < data.length; i++) {
         var tr = document.createElement('tr');
         //         "flightId": 1,
         //         "startTime": "2018-06-02T13:52:00.000+0000",
