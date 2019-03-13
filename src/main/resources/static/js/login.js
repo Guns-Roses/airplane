@@ -5,15 +5,16 @@ $(document).ready(function () {
         var jsonObj = new Object();
         jsonObj.username = name;
         jsonObj.password = pwd;
-        $.ajax({
-            url: "/user",
-            data: JSON.stringify(jsonObj),
-            type: "POST",
-            contentType: "application/json; charset=utf-8",
-            success: function (data) {
-                if (data == null)
-                    alert("登录失败");
-                else {
+        if (name == "" || pwd == "") {
+            alert("账号密码不能为空")
+        } else {
+            $.ajax({
+                url: "/user",
+                data: JSON.stringify(jsonObj),
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+
                     alert("登录成功");
                     $.cookie("username", name);
                     if (data.isManager == 1)
@@ -25,9 +26,11 @@ $(document).ready(function () {
                         window.location = "showFlight.html";
                     }
                 }
-            }
-        });
+
+            });
+        }
     })
+
 })
 /*
 $(document).ready(function () {
