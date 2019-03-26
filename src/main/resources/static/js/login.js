@@ -12,6 +12,8 @@ $(document).ready(function () {
                 url: "/user",
                 data: JSON.stringify(jsonObj),
                 type: "POST",
+                // async:false,
+                // dataType:"json",
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
 
@@ -25,6 +27,9 @@ $(document).ready(function () {
                     } else {
                         window.location = "showFlight.html";
                     }
+                },
+                error:function(){
+                    alert("登录失败")
                 }
 
             });
