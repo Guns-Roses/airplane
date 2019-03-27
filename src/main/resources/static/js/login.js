@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    $("#login-btn").click(function () {
+    //登录功能
+    $("#login-btn1").click(function () {
         var name = $("#name").val();
         var pwd = $("#pwd").val();
         var jsonObj = new Object();
@@ -34,6 +35,10 @@ $(document).ready(function () {
 
             });
         }
+    });
+    //注册功能
+    $("#login-btn2").click(function () {
+
     })
 
 });

@@ -44,6 +44,14 @@
     color: white;
     font-size: 18px;
 }
+.logE a button {
+    width: 100%;
+    height: 45px;
+    background-color: #02aaf1;
+    border: none;
+    color: white;
+    font-size: 18px;
+}
 
 .logGet .logD.logDtip .p1 {
     display: inline-block;
