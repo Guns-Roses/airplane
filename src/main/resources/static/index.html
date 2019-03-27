@@ -20,31 +20,56 @@
     <script src="dist/js/jquery.cookie.js"></script>
 </head>
 <body>
-<!--预留的导航部分-->
-<div class="container" id="navigation">
+
+<div class="header" id="head">
+    <div class="title">机票预订系统</div>
 
 </div>
-<div class="container">
-    <h1 align="center">机票管理系统登陆界面</h1>
-    <div class="container col-6">
-        <div class="container">
-            <div class="form-group">
-                <label for="name">username:</label>
-                <input type="text" class="form-control" id="name">
+
+
+<div class="wrap" id="wrap">
+    <div class="logGet">
+            <div class="logD logDtip">
+                <p class="p1">登录</p>
             </div>
-            <div class="form-group">
-                <label for="pwd">password:</label>
-                <input type="password" class="form-control" id="pwd">
+            <!--输入框-->
+            <div class="lgD">
+                <img src="img/name.jpg" width="20" height="20" alt=""/>
+               <!-- <label for="name">username:</label>-->
+                <input type="text" class="form-control" id="name" placeholder="输入用户名"/>
             </div>
-            <div align="center">
-                <button type="submit" class="btn btn-primary" id="login-btn">登陆</button>
+
+            <div class="lgD">
+                <img src="img/pwd.jpg" width="20" height="25" alt=""/>
+               <!-- <label for="pwd">password:</label>-->
+                <input type="password" class="form-control" id="pwd" placeholder="输入用户密码"/>
             </div>
+
+            <!--登录按钮-->
+            <div class="logC">
+                <a target="_self">
+                    <button id="login-btn">登 录</button>
+                </a>
+            </div>
+    </div>
+</div>
+
+
+<div class="footer" id="foot">
+    <div class="copyright">
+        <div class="img">
+            <i class="icon1"></i><span>联系人：lvxutao</span>
+        </div>
+        <div class="img">
+            <i class="icon2"></i><span>联系邮箱：superheroman9527@gmail.com</span>
+        </div>
+
+        <div class="img">
+            <i class="icon3"></i><span>联系地址：黄河科技学院</span>
         </div>
     </div>
 </div>
 
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 </body>
 </html>
