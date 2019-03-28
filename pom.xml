@@ -68,44 +68,45 @@
 
 	<build>
 		<plugins>
+			<!--maven插件-->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<plugin>
-				<groupId>org.mybatis.generator</groupId>
-				<artifactId>mybatis-generator-maven-plugin</artifactId>
+			<!--<plugin>-->
+				<!--<groupId>org.mybatis.generator</groupId>-->
+				<!--<artifactId>mybatis-generator-maven-plugin</artifactId>-->
 
-				<dependencies>
-					<dependency>
-						<groupId> mysql</groupId>
-						<artifactId> mysql-connector-java</artifactId>
-					</dependency>
-					<dependency>
-						<groupId>org.mybatis.generator</groupId>
-						<artifactId>mybatis-generator-core</artifactId>
+				<!--<dependencies>-->
+					<!--<dependency>-->
+						<!--<groupId> mysql</groupId>-->
+						<!--<artifactId> mysql-connector-java</artifactId>-->
+					<!--</dependency>-->
+					<!--<dependency>-->
+						<!--<groupId>org.mybatis.generator</groupId>-->
+						<!--<artifactId>mybatis-generator-core</artifactId>-->
 
-					</dependency>
-				</dependencies>
-				<executions>
-					<execution>
-						<id>Generate MyBatis Artifacts</id>
-						<phase>package</phase>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<!--允许移动生成的文件 -->
-					<verbose>true</verbose>
-					<!-- 是否覆盖 -->
-					<overwrite>true</overwrite>
-					<!-- 自动生成的配置 -->
-					<configurationFile>
-						src/main/resources/mybatis-generator.xml</configurationFile>
-				</configuration>
-			</plugin>
+					<!--</dependency>-->
+				<!--</dependencies>-->
+				<!--<executions>-->
+					<!--<execution>-->
+						<!--<id>Generate MyBatis Artifacts</id>-->
+						<!--<phase>package</phase>-->
+						<!--<goals>-->
+							<!--<goal>generate</goal>-->
+						<!--</goals>-->
+					<!--</execution>-->
+				<!--</executions>-->
+				<!--<configuration>-->
+					<!--&lt;!&ndash;允许移动生成的文件 &ndash;&gt;-->
+					<!--<verbose>true</verbose>-->
+					<!--&lt;!&ndash; 是否覆盖 &ndash;&gt;-->
+					<!--<overwrite>true</overwrite>-->
+					<!--&lt;!&ndash; 自动生成的配置 &ndash;&gt;-->
+					<!--<configurationFile>-->
+						<!--src/main/resources/mybatis-generator.xml</configurationFile>-->
+				<!--</configuration>-->
+			<!--</plugin>-->
 		</plugins>
 	</build>
 
