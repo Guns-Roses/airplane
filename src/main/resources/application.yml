@@ -10,3 +10,9 @@ spring:
 
 mybatis:
   type-aliases-package: com.ticketsystem.entity
+
+logging:
+  level:
+    com.ticketsystem: debug
+  file: ./log/info.log
+  root: INFO
