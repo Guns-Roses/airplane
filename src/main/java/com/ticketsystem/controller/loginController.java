@@ -5,6 +5,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 import com.ticketsystem.model.User;
 import com.ticketsystem.service.CheckService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.Map;
 
+@Api(value="登录注册功能实现",tags="登录注册接口")
 @RestController
 @MapperScan("com.ticketsystem.dao")
 public class loginController {
@@ -19,6 +22,7 @@ public class loginController {
     @Autowired
     private CheckService checkService;
 
+    @ApiOperation(value = "登录功能", notes = "登录逻辑实现的接口")
     @RequestMapping("/login")
     @ResponseBody
     public User login(@RequestBody Map<String, String> param) {
@@ -30,6 +34,7 @@ public class loginController {
         return checkService.login(user);
     }
 
+    @ApiOperation(value = "注册功能", notes = "注册逻辑实现的接口")
     @RequestMapping("/registered")
     @ResponseBody
     public User register(@RequestBody Map<String, String> param) {
