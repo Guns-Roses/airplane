@@ -19,15 +19,26 @@ public class loginController {
     @Autowired
     private CheckService checkService;
 
-    @RequestMapping("/user")
+    @RequestMapping("/login")
     @ResponseBody
-    public User token(@RequestBody Map<String, String> param) {
+    public User login(@RequestBody Map<String, String> param) {
         String username = param.get("username");
         String password = param.get("password");
         User user = new User();
         user.setUserName(username);
         user.setUserPassword(password);
-        return checkService.getToken(user);
+        return checkService.login(user);
+    }
+
+    @RequestMapping("/registered")
+    @ResponseBody
+    public User register(@RequestBody Map<String, String> param) {
+        String username = param.get("username");
+        String password = param.get("password");
+        User user = new User();
+        user.setUserName(username);
+        user.setUserPassword(password);
+        return checkService.registered(user);
     }
 
 }

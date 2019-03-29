@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.ticketsystem.model.Flight;
 import com.ticketsystem.service.FlightService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,7 @@ public class FlightController {
     @Autowired
     private FlightService flightService;
 
+    @ApiOperation(value="获取所有航班", notes="")
     @RequestMapping("all")
     public List<Flight> getAllFlight() {
         return flightService.getAllFlight();

@@ -10,7 +10,7 @@ $(document).ready(function () {
             alert("账号密码不能为空")
         } else {
             $.ajax({
-                url: "/user",
+                url: "/login",
                 data: JSON.stringify(jsonObj),
                 type: "POST",
                 // async:false,
@@ -36,9 +36,9 @@ $(document).ready(function () {
             });
         }
     });
-    //注册功能
+    //注册跳转
     $("#login-btn2").click(function () {
-
+        window.location = "registered.html"
     })
 
 });
