@@ -29,7 +29,7 @@ $(document).ready(function () {
                         window.location = "showFlight.html";
                     }
                 },
-                error:function(){
+                error: function () {
                     alert("登录失败")
                 }
 
