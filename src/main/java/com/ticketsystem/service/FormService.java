@@ -27,6 +27,12 @@ public class FormService {
     @Autowired
     private FlightMapper flightMapper;
 
+    /**
+     * 获取订单列表
+     *
+     * @param username
+     * @return
+     */
     public List<OrderForm> getAll(String username) {
         UserExample userExample = new UserExample();
         userExample.createCriteria().andUserNameEqualTo(username);
@@ -37,6 +43,14 @@ public class FormService {
         return orderFormMapper.selectByExample(orderFormExample);
     }
 
+    /**
+     * 获取订单总金额
+     *
+     * @param username
+     * @param ticketNum
+     * @param flightId
+     * @return
+     */
     public float getAllPrice(String username, int ticketNum, int flightId) {
         UserExample userExample = new UserExample();
         userExample.createCriteria().andUserNameEqualTo(username);
@@ -47,6 +61,14 @@ public class FormService {
         return totalPrice;
     }
 
+    /**
+     * 获取订单详细信息
+     *
+     * @param username
+     * @param ticketNum
+     * @param tickets
+     * @return
+     */
     public float order(String username, int ticketNum, List<Ticket> tickets) {
         float totalPrice = 0;
         UserExample userExample = new UserExample();
@@ -88,6 +110,13 @@ public class FormService {
         return totalPrice;
     }
 
+    /**
+     * 获取时间
+     *
+     * @param date
+     * @param second
+     * @return
+     */
     private Date addSecond(Date date, int second) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);

@@ -30,6 +30,13 @@ public class FlightService {
         flightMapper.deleteByPrimaryKey(flightId);
     }
 
+    /**
+     * 航班查询
+     *
+     * @param startCity
+     * @param endCity
+     * @return
+     */
     public List<Flight> queryByCity(String startCity, String endCity) {
         FlightExample flightExample = new FlightExample();
         FlightExample.Criteria criteria = flightExample.createCriteria();
@@ -40,6 +47,11 @@ public class FlightService {
         return flightMapper.selectByExample(flightExample);
     }
 
+    /**
+     * 增加航班
+     *
+     * @param flight
+     */
     public void addFlight(Flight flight) {
         flightMapper.insert(flight);
     }

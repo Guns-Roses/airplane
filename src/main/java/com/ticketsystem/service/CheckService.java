@@ -12,6 +12,12 @@ public class CheckService {
     @Autowired
     private UserMapper userMapper;
 
+    /**
+     * 登录功能
+     *
+     * @param user
+     * @return
+     */
     public User login(User user) {
         UserExample userExample = new UserExample();
         UserExample.Criteria criteria = userExample.createCriteria();
@@ -28,6 +34,12 @@ public class CheckService {
         }
     }
 
+    /**
+     * 注册功能
+     *
+     * @param user
+     * @return
+     */
     public User registered(User user) {
         UserExample userExample = new UserExample();
         UserExample.Criteria criteria = userExample.createCriteria();

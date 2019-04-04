@@ -20,22 +20,47 @@ public class TicketService {
     @Autowired
     private FlightMapper flightMapper;
 
+    /**
+     * 获取机票列表
+     *
+     * @return
+     */
     public List<Ticket> getAllTicket() {
         TicketExample ticketExample = new TicketExample();
         ticketExample.createCriteria();
         return ticketMapper.selectByExample(ticketExample);
     }
 
+    /**
+     * 获取订单ID
+     *
+     * @param id
+     * @return
+     */
     public List<Ticket> getTicketByFormId(int id) {
         TicketExample ticketExample = new TicketExample();
         ticketExample.createCriteria().andOrderFormIdEqualTo(id);
         return ticketMapper.selectByExample(ticketExample);
     }
 
+    /**
+     * 获取机票ID
+     *
+     * @param ticketId
+     * @return
+     */
     public Ticket getTicketById(int ticketId) {
         return ticketMapper.selectByPrimaryKey(ticketId);
     }
 
+    /**
+     * 修改功能
+     *
+     * @param ticketId
+     * @param flightId
+     * @param passengerName
+     * @param price
+     */
     public void altTicket(int ticketId, int flightId, String passengerName, float price) {
         Ticket ticket = new Ticket();
         ticket.setPrice(price);
@@ -45,6 +70,11 @@ public class TicketService {
         ticketMapper.updateByPrimaryKeySelective(ticket);
     }
 
+    /**
+     * 根据机票ID删除
+     *
+     * @param ticketId
+     */
     public void deleteById(int ticketId) {
         Ticket ticket = ticketMapper.selectByPrimaryKey(ticketId);
         ticketMapper.deleteByPrimaryKey(ticketId);
