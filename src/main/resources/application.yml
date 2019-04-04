@@ -2,6 +2,19 @@ server:
   port: 9999
 
 spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+    timeout: 1000
+    database: 0
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1
+        min-idle: 8
+        max-idle: 0
+      shutdown-timeout: 10000
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/ticket?useSSL=false

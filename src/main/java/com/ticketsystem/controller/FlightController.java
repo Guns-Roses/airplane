@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Map;
 
-@Api(value="航班操作",tags="航班操作信息接口")
+@Api(value = "航班操作", tags = "航班操作信息接口")
 @RestController
 @RequestMapping("/flight")
 public class FlightController {

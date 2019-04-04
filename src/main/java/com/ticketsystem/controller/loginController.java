@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.Map;
 
-@Api(value="登录注册功能实现",tags="登录注册接口")
+@Api(value = "登录注册功能实现", tags = "登录注册接口")
 @RestController
 @MapperScan("com.ticketsystem.dao")
 public class loginController {

@@ -1,6 +1,9 @@
 package com.ticketsystem.model;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
+    private static final long serialVersionUID = 8655851615465363473L;
     private Integer userId;
 
     private String isManager;
@@ -10,6 +13,20 @@ public class User {
     private String userPassword;
 
     private Short isVip;
+
+    public User() {
+    }
+
+    public User(String username, String password) {
+        this.userName = username;
+        this.userPassword = password;
+    }
+
+    public User(Integer id, String username, String password) {
+        this.userId = id;
+        this.userName = username;
+        this.userPassword = password;
+    }
 
     public Integer getUserId() {
         return userId;
