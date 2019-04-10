@@ -27,15 +27,15 @@ public class loginController {
     @ApiOperation(value = "登录功能", notes = "登录逻辑实现的接口")
     @RequestMapping("/login")
     @ResponseBody
- /*   public User register(@RequestBody Map<String, String> param) {
+    public User register(@RequestBody Map<String, String> param) {
         String username = param.get("username");
         String password = param.get("password");
         User user = new User();
         user.setUserName(username);
         user.setUserPassword(password);
         return checkService.login(user);
-    }*/
-    public String login(HttpServletRequest request, HttpSession session) {
+    }
+    /*public String login(HttpServletRequest request, HttpSession session) {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String tname = checkService.login(username,password);
@@ -45,7 +45,7 @@ public class loginController {
         }
         else
             return "index";
-    }
+    }*/
 
  /*   @ApiOperation(value = "注册功能", notes = "注册逻辑实现的接口")
     @RequestMapping("/registered")

@@ -21,9 +21,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserMapper {
-    @Select("select user_name from user where user_name =#{userName,jdbcType=CHAR} and user_password=#{userPassword,jdbcType=CHAR}")
-     String login(@Param("userName") String username, @Param("userPassword") String password);
-
+    /* @Select("select user_name from user where user_name =#{userName,jdbcType=CHAR} and user_password=#{userPassword,jdbcType=CHAR}")
+      String login(@Param("userName") String username, @Param("userPassword") String password);
+    */
     @SelectProvider(type = UserSqlProvider.class, method = "countByExample")
     long countByExample(UserExample example);
 

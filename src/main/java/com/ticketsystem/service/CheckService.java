@@ -13,13 +13,12 @@ public class CheckService {
     private UserMapper userMapper;
 
     /**
-     * 登录功能
+     * 登陆功能
      *
-     * @param username
-     * @param password
+     * @param user
      * @return
      */
-    /*public User login(User user) {
+    public User login(User user) {
         UserExample userExample = new UserExample();
         UserExample.Criteria criteria = userExample.createCriteria();
         criteria.andUserNameEqualTo(user.getUserName());
@@ -33,11 +32,11 @@ public class CheckService {
         } else {
             return null;
         }
-    }*/
-    public String login(String username, String password) {
+    }
+   /* public String login(String username, String password) {
         return userMapper.login(username, password);
     }
-
+   */
     /**
      * 注册功能
      *
