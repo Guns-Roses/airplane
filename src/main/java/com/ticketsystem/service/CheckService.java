@@ -15,10 +15,11 @@ public class CheckService {
     /**
      * 登录功能
      *
-     * @param user
+     * @param username
+     * @param password
      * @return
      */
-    public User login(User user) {
+    /*public User login(User user) {
         UserExample userExample = new UserExample();
         UserExample.Criteria criteria = userExample.createCriteria();
         criteria.andUserNameEqualTo(user.getUserName());
@@ -32,6 +33,9 @@ public class CheckService {
         } else {
             return null;
         }
+    }*/
+    public String login(String username, String password) {
+        return userMapper.login(username, password);
     }
 
     /**
@@ -40,7 +44,7 @@ public class CheckService {
      * @param user
      * @return
      */
-    public User registered(User user) {
+   /* public User registered(User user) {
         UserExample userExample = new UserExample();
         UserExample.Criteria criteria = userExample.createCriteria();
         criteria.andUserNameEqualTo(user.getUserName());
@@ -54,5 +58,5 @@ public class CheckService {
         } else {
             return null;
         }
-    }
+    }*/
 }
