@@ -6,8 +6,10 @@ $(document).ready(function () {
         var jsonObj = new Object();
         jsonObj.username = name;
         jsonObj.password = pwd;
-        if (name == "" || pwd == "") {
-            alert("账号密码不能为空")
+        if (name == null || name == "") {
+            alert("用户名不能为空！")
+        } else if (pwd == "" || pwd == null) {
+            alert("密码不能为空！")
         } else {
             $.ajax({
                 url: "/login",
@@ -16,8 +18,21 @@ $(document).ready(function () {
                 // async:false,
                 // dataType:"json",
                 contentType: "application/json; charset=utf-8",
-                success: function (data) {
+                success: function (data, staus) {
 
+                    /*if (data.check == "true") {
+                        $.cookie("username", name);
+                        if (data.isManager == 1)
+                            window.location = "managerFlight.html";
+                        else if (data.isVip == 1) {
+                            window.location = "showFlight.html";
+                            alert("尊敬的会员，您可以享受八折优惠");
+                        } else {
+                            window.location = "showFlight.html";
+                        }
+                    } else {
+                        alert("用户名或者密码错误！")
+                    }*/
                     alert("登录成功");
                     $.cookie("username", name);
                     if (data.isManager == 1)

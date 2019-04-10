@@ -27,7 +27,7 @@ public class loginController {
     @ApiOperation(value = "登录功能", notes = "登录逻辑实现的接口")
     @RequestMapping("/login")
     @ResponseBody
-    public User register(@RequestBody Map<String, String> param) {
+    public User login(@RequestBody Map<String, String> param) {
         String username = param.get("username");
         String password = param.get("password");
         User user = new User();
@@ -47,7 +47,7 @@ public class loginController {
             return "index";
     }*/
 
- /*   @ApiOperation(value = "注册功能", notes = "注册逻辑实现的接口")
+    @ApiOperation(value = "注册功能", notes = "注册逻辑实现的接口")
     @RequestMapping("/registered")
     @ResponseBody
     public User register(@RequestBody Map<String, String> param) {
@@ -57,6 +57,6 @@ public class loginController {
         user.setUserName(username);
         user.setUserPassword(password);
         return checkService.registered(user);
-    }*/
+    }
 
 }

@@ -43,7 +43,7 @@ public class CheckService {
      * @param user
      * @return
      */
-   /* public User registered(User user) {
+    public User registered(User user) {
         UserExample userExample = new UserExample();
         UserExample.Criteria criteria = userExample.createCriteria();
         criteria.andUserNameEqualTo(user.getUserName());
@@ -57,5 +57,5 @@ public class CheckService {
         } else {
             return null;
         }
-    }*/
+    }
 }
