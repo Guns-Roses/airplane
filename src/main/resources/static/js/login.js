@@ -12,7 +12,7 @@ $(document).ready(function () {
             alert("密码不能为空！")
         } else {
             $.ajax({
-                url: "/login",
+                url: "/user/login",
                 data: JSON.stringify(jsonObj),
                 type: "POST",
                 // async:false,

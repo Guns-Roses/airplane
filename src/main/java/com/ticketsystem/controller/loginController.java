@@ -19,6 +19,7 @@ import java.util.Map;
 @Api(value = "登录注册功能实现", tags = "登录注册接口")
 @RestController
 @MapperScan("com.ticketsystem.dao")
+@RequestMapping("/user")
 public class loginController {
 
     @Autowired
@@ -27,12 +28,13 @@ public class loginController {
     @ApiOperation(value = "登录功能", notes = "登录逻辑实现的接口")
     @RequestMapping("/login")
     @ResponseBody
-    public User login(@RequestBody Map<String, String> param) {
+    public User login(@RequestBody Map<String, String> param, HttpServletRequest request) {
         String username = param.get("username");
         String password = param.get("password");
         User user = new User();
         user.setUserName(username);
         user.setUserPassword(password);
+        request.getSession().setAttribute("session_user",user);
         return checkService.login(user);
     }
     /*public String login(HttpServletRequest request, HttpSession session) {
@@ -50,10 +52,10 @@ public class loginController {
     @ApiOperation(value = "注册功能", notes = "注册逻辑实现的接口")
     @RequestMapping("/registered")
     @ResponseBody
-    public User register(@RequestBody Map<String, String> param) {
+    public User register(@RequestBody Map<String, String> param, HttpServletRequest request) {
+        User user = new User();
         String username = param.get("username");
         String password = param.get("password");
-        User user = new User();
         user.setUserName(username);
         user.setUserPassword(password);
         return checkService.registered(user);
