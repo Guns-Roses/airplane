@@ -20,7 +20,7 @@ import java.util.Map;
 @RestController
 @MapperScan("com.ticketsystem.dao")
 @RequestMapping("/user")
-public class loginController {
+public class LoginController {
 
     @Autowired
     private CheckService checkService;

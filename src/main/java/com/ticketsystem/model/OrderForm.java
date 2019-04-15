@@ -46,10 +46,10 @@ public class OrderForm {
     }
 
     public Date getOrderTime() {
-        return orderTime;
+        return (Date) orderTime.clone();
     }
 
     public void setOrderTime(Date orderTime) {
-        this.orderTime = orderTime;
+        this.orderTime = (Date) orderTime.clone();
     }
 }

@@ -40,9 +40,10 @@ public class FlightService {
     public List<Flight> queryByCity(String startCity, String endCity) {
         FlightExample flightExample = new FlightExample();
         FlightExample.Criteria criteria = flightExample.createCriteria();
-        if (startCity != "")
+        String s = "";
+        if (startCity.equals(s))
             criteria.andStartCityEqualTo(startCity);
-        if (endCity != "")
+        if (endCity.equals(s))
             criteria.andEndCityEqualTo(endCity);
         return flightMapper.selectByExample(flightExample);
     }

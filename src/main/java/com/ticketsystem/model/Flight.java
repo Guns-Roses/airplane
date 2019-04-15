@@ -26,11 +26,11 @@ public class Flight {
     }
 
     public Date getStartTime() {
-        return startTime;
+        return (Date) startTime.clone();
     }
 
     public void setStartTime(Date startTime) {
-        this.startTime = startTime;
+        this.startTime = (Date) startTime.clone();
     }
 
     public String getStartCity() {
