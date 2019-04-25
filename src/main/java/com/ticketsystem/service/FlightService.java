@@ -41,9 +41,11 @@ public class FlightService {
         FlightExample flightExample = new FlightExample();
         FlightExample.Criteria criteria = flightExample.createCriteria();
         String s = "";
-        if (startCity.equals(s))
+        //if (startCity.equals(s))
+        if (startCity != "")
             criteria.andStartCityEqualTo(startCity);
-        if (endCity.equals(s))
+        //if (endCity.equals(s))
+        if (endCity != "")
             criteria.andEndCityEqualTo(endCity);
         return flightMapper.selectByExample(flightExample);
     }
