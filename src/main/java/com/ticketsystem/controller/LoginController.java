@@ -34,7 +34,7 @@ public class LoginController {
         User user = new User();
         user.setUserName(username);
         user.setUserPassword(password);
-        request.getSession().setAttribute("session_user",user);
+        request.getSession().setAttribute("session_user", user);
         return checkService.login(user);
     }
     /*public String login(HttpServletRequest request, HttpSession session) {
