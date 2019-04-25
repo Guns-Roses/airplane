@@ -19,7 +19,10 @@ public class SessionInterceptor implements WebMvcConfigurer {
     //注册拦截器
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new UserInterceptor()).addPathPatterns("/**").excludePathPatterns("/index.html", "/user/login", "/user/registered", "/css/**", "/js/**", "dist/**", "/fonts/**", "/img/**","/error");
+        registry.addInterceptor(new UserInterceptor()).addPathPatterns("/**")
+                .excludePathPatterns("/index.html", "/user/login", "/user/registered", "/css/**", "/js/**", "dist/**", "/fonts/**", "/img/**","/error"
+                ,"/swagger-resources/configuration/ui","/swagger-resources","/v2/api-docs","/swagger-resources/configuration/security"
+                );
 
     }
 }
