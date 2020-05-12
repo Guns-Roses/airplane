@@ -2,6 +2,10 @@ server:
   port: 9999
 
 spring:
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
   redis:
     host: 127.0.0.1
     port: 6379
